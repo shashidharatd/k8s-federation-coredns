@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coredns-etcd
+  namespace: kube-system
+  labels:
+    app: federated-cluster
+spec:
+  selector:
+    app: federated-cluster
+    module: federation-dns-server
+  ports:
+    - name: etcd
+      protocol: TCP
+      port: 2379

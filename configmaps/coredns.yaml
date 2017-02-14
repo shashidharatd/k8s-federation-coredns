@@ -1,0 +1,13 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: coredns-config
+  namespace: kube-system
+data:
+  Corefile: |-
+    .:53 {
+      etcd hwpaas.io {
+        endpoint http://127.0.0.1:2379
+      }
+      loadbalance
+    }
